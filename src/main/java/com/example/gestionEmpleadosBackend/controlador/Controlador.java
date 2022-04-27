@@ -44,7 +44,7 @@ public class Controlador {
 	
 	@PutMapping("update")
 	public ResponseEntity<Empleado> updateEmpleado( @RequestBody Empleado empleado){
-		Empleado updateEmpleado = this.empleadoServicio.addEmpleado(empleado);
+		Empleado updateEmpleado = this.empleadoServicio.updateEmpleado(empleado);
 		return new ResponseEntity<>(updateEmpleado, HttpStatus.OK);
 	}
 	

@@ -19,11 +19,21 @@ public class Empleado implements Serializable {
 	@Column(nullable = false, updatable = false) // No puede estar vacia, No puede actualizarse
 	private Long id;
 
+	@Column(nullable = false, updatable = false) // No puede estar vacia, No puede actualizarse
+	private String empleadoCode;
+	
+	private String name;
+	private String email;
+	private String cargo;
+	private String phone;
+	private String sexo;
+	private String imageUrl;
+		
 	public Empleado() {
 	}
 
 	public Empleado(Long id, String name, String email, String cargo, String phone, String imageUrl,
-			String empleadoCode) {
+			String empleadoCode, String sexo) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -32,16 +42,10 @@ public class Empleado implements Serializable {
 		this.phone = phone;
 		this.imageUrl = imageUrl;
 		this.empleadoCode = empleadoCode;
+		this.sexo = sexo;
 	}
 
-	private String name;
-	private String email;
-	private String cargo;
-	private String phone;
-	private String imageUrl;
 
-	@Column(nullable = false, updatable = false) // No puede estar vacia, No puede actualizarse
-	private String empleadoCode;
 
 	// TO-DO Usar lombok para definir setters and getters automaticamente
 
@@ -101,11 +105,19 @@ public class Empleado implements Serializable {
 		this.empleadoCode = empleadoCode;
 	}
 
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Empleado {" + this.getId() + "/" + this.getName() + "/" + this.getEmail() + "/" + this.getCargo() + "/"
-				+ this.getPhone() + "/" + this.getImageUrl() + "}";
+				+ this.getPhone() + "/" + this.getImageUrl() + this.getSexo() + "}";
 	}
 
 }
